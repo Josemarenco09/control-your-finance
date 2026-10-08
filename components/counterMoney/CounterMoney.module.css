@@ -1,0 +1,53 @@
+/* Tarjeta que envuelve todo el componente */
+.card {
+    max-width: 360px;
+    margin: 40px auto;
+    padding: 24px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+/* Número grande con el dinero guardado */
+.amount {
+    margin: 0 0 20px;
+    font-size: 48px;
+    color: #15803d;
+}
+
+/* Contenedor del input y el botón, uno debajo del otro */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input {
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+/* Estilo cuando el input está seleccionado */
+.input:focus {
+    outline: none;
+    border-color: #15803d;
+}
+
+.button {
+    padding: 10px 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #15803d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Estilo al pasar el ratón por encima */
+.button:hover {
+    background-color: #166534;
+}

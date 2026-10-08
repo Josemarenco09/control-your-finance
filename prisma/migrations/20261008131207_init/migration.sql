@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Movement" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "type" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL,
+    "category" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

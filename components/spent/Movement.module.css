@@ -1,0 +1,33 @@
+.addMovementButton{
+    padding: 5px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #15803d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.addMovement {
+    border-radius: 5px;
+}
+
+.dialogMovement{
+    background-color: gray;
+    border: none;
+    border-radius: 15px;
+}
+
+.dialogContent {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 700px;
+    background-color: gray;
+    border: none;
+    border-radius: 7px;
+}
+
+.inputMovement{
+    margin: 10px;
+}
