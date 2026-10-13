@@ -9,6 +9,9 @@
     box-shadow: 0 4px 16px #0000001a;
     font-family: sans-serif;
     text-align: center;
+    /* Columna flexible para poder empujar el saldo hasta abajo */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Número grande con el dinero guardado */
@@ -51,4 +54,45 @@
 /* Estilo al pasar el ratón por encima */
 .button:hover {
     background-color: #166534;
+}
+
+/* Bloque del saldo: margin-top auto lo empuja al fondo de la tarjeta */
+.balance {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.balanceLabel {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.balanceAmount {
+    margin: 4px 0 8px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #15803d;
+}
+
+/* Si el saldo es negativo se muestra en rojo */
+.balanceAmount.negative {
+    color: #b91c1c;
+}
+
+.balanceDetail {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.income {
+    color: #15803d;
+}
+
+.expense {
+    color: #b91c1c;
 }

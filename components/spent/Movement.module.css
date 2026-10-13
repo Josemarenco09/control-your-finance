@@ -1,11 +1,17 @@
 .addMovementButton{
-    padding: 5px;
-    font-size: 12px;
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 12px;
+    font-size: 16px;
     color: #ffffff;
     background-color: #15803d;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.addMovementButton:hover:not(:disabled) {
+    background-color: #166534;
 }
 
 .addMovement {

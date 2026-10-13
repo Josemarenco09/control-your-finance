@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 const MOVEMENT_TYPES = ["INCOME", "EXPENSE"]
-const EXPENSE_CATEGORIES = ["Hogar", "Merienda", "Otro"]
+const EXPENSE_CATEGORIES = ["Hogar", "Trabajo", "Merienda", "Otro"]
 
 export async function GET() {
     const movements = await prisma.movement.findMany({

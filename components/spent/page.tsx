@@ -70,7 +70,7 @@ export default function MovementMoney() {
     return (
         <>
             <div>
-                <button className={style.addMovementButton} onClick={handleClick}> Presioname </button>
+                <button className={style.addMovementButton} onClick={handleClick}> Agregar movimiento</button>
                     <div className={style.addMovement}>
                         <dialog className={style.dialogMovement} ref={ref} onClose={resetForm}>
                             <div className={style.dialogContent}>
