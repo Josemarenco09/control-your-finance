@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./CounterMoney.module.css";
 
 
@@ -13,32 +14,58 @@ const currency = new Intl.NumberFormat("es-CO", {
 
 interface UserMoneyProps {
     children: React.ReactNode
+    initialAmount: number
     totalIncome: number
     totalExpense: number
 }
 
-export default function UserMoney({ children, totalIncome, totalExpense }: UserMoneyProps){
+export default function UserMoney({ children, initialAmount, totalIncome, totalExpense }: UserMoneyProps){
+
+    const router = useRouter()
 
     // Texto, no número: así el input puede empezar vacío ("") en vez de con 0
     const [userMoney, setUserMoney] = useState("")
-    const [showMoney, setShowMoney] = useState(0)
+    const [error, setError] = useState("")
+    const [saving, setSaving] = useState(false)
 
     // Se calcula en cada render: no necesita su propio useState
-    const balance = showMoney + totalIncome - totalExpense
+    const balance = initialAmount + totalIncome - totalExpense
 
-    function submitMoney() {
-        // Convertimos a número solo al momento de usarlo
-        setShowMoney(Number(userMoney))
+    async function submitMoney() {
+        setSaving(true)
+        setError("")
+
+        // Guardamos en la base de datos en vez de en useState, para que no se pierda al recargar
+        const response = await fetch("/api/account", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ initialAmount: Number(userMoney) })
+        })
+
+        setSaving(false)
+
+        if (!response.ok) {
+            const data = await response.json()
+            setError(data.error ?? "Ocurrió un error")
+            return
+        }
+
         setUserMoney("")
+
+        // Vuelve a ejecutar page.tsx, que lee la cantidad nueva y la pasa como prop
+        router.refresh()
     }
     
     return (
         <>
             <div className={styles.card}>
-                <h1 className={styles.amount}> {showMoney} </h1>
+                <h1 className={styles.amount}> {currency.format(initialAmount)} </h1>
                     <section className={styles.form}>
                         <input type="number" className={styles.input} placeholder="Cantidad de dinero actual" value={userMoney} onChange={(e) => setUserMoney(e.target.value)}></input>
-                        <button className={styles.button} type="submit" onClick={submitMoney}> Asignar mi cantidad </button>
+                        <button className={styles.button} type="submit" onClick={submitMoney} disabled={userMoney === "" || saving}>
+                            {saving ? "Guardando..." : "Asignar mi cantidad"}
+                        </button>
+                        {error && <p className={styles.errorMessage}> {error} </p>}
                     </section> 
                     {children}
                     <section className={styles.balance}>

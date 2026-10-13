@@ -1,0 +1,84 @@
+/* Tarjeta con el mismo estilo que la tabla de movimientos */
+.card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px #0000001a;
+    font-family: sans-serif;
+}
+
+.title {
+    margin: 0 0 16px;
+    font-size: 18px;
+    color: #15803d;
+}
+
+/* Quita las viñetas y el margen que trae <ul> por defecto */
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Nombre a la izquierda y monto a la derecha */
+.row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.amount {
+    color: #b91c1c;
+    white-space: nowrap;
+}
+
+/* Fondo gris de la barra: representa el 100 % */
+.track {
+    height: 10px;
+    background-color: #f3f4f6;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+/* Parte de color: su ancho llega por style={{ width }} desde el componente */
+.fill {
+    height: 100%;
+    background-color: #b91c1c;
+    border-radius: 999px;
+}
+
+.percentage {
+    align-self: flex-end;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Fila final con el total, separada por una línea */
+.total {
+    margin: 20px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.empty {
+    margin: 0;
+    color: #6b7280;
+    text-align: center;
+}

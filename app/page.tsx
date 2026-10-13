@@ -11,6 +11,10 @@ export default async function Home() {
     orderBy: { createdAt: "desc" }
   })
 
+  // Si todavía no se ha asignado ninguna cantidad, la fila no existe y usamos 0
+  const account = await prisma.account.findUnique({ where: { id: 1 } })
+  const initialAmount = account?.initialAmount ?? 0
+
   // Solo enviamos al Client Component dos números, no la lista completa
   const totalIncome = movements
     .filter((movement) => movement.type === "INCOME")
@@ -23,7 +27,7 @@ export default async function Home() {
   return (
     <main className={style.layout}>
       <div className={style.userMoney}>
-        <UserMoney totalIncome={totalIncome} totalExpense={totalExpense}>
+        <UserMoney initialAmount={initialAmount} totalIncome={totalIncome} totalExpense={totalExpense}>
           <MovementMoney></MovementMoney>
         </UserMoney>
       </div>

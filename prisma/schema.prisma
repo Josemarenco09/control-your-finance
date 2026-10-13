@@ -22,3 +22,10 @@ model Movement {
   category  String?
   createdAt DateTime     @default(now())
 }
+
+// Una sola fila (id = 1) con la cantidad de dinero que el usuario asigna
+model Account {
+  id            Int      @id @default(1)
+  initialAmount Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}
