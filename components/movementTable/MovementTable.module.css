@@ -1,0 +1,52 @@
+.table {
+    width: 100%;
+    /* Une los bordes de las celdas para que no salgan dobles */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px #0000001a;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.table th,
+.table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+    background-color: #15803d;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Filas alternas con un fondo suave para leer mejor */
+.table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Los números se leen mejor alineados a la derecha */
+.table .amountCell {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.income {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.expense {
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.empty {
+    padding: 24px;
+    text-align: center;
+    color: #6b7280;
+    font-family: sans-serif;
+}

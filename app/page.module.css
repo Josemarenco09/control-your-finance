@@ -1,0 +1,31 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 24px;
+    min-height: 100dvh;
+    padding: 24px;
+}
+
+.userMoney {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tableMovements {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.extra {
+    background-color: tomato;
+}
+
+/* En pantallas pequeñas: una sola columna */
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

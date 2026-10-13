@@ -13,21 +13,45 @@
 }
 
 .dialogMovement{
-    background-color: gray;
+    /* Ocupa el ancho de la columna izquierda y queda por encima de la tarjeta */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: 10;
+    box-shadow: 0 8px 24px #00000033;
+    background-color: rgb(151, 184, 102);
     border: none;
     border-radius: 15px;
 }
 
 .dialogContent {
     display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 700px;
-    background-color: gray;
+    flex-direction:column;
+    align-content: center;
+    justify-content: space-around;
+    gap: 12px;
+    background-color: rgb(151, 184, 102);
     border: none;
     border-radius: 7px;
 }
 
+.select{
+    margin: 20px;
+}
+
+.optionSpentType{
+    border: none;
+}
+
 .inputMovement{
     margin: 10px;
+}
+.errorMessage {
+    color: #b91c1c;
+    font-size: 14px;
+}
+
+.addMovementButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
